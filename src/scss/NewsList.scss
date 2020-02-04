@@ -1,0 +1,78 @@
+.news-list {
+  .item {
+    @include card-style;
+    margin-bottom: 40px;
+
+    header {
+      border-bottom: 1px solid rgba(133, 133, 133, 0.5);
+      padding: 18px 28px;
+
+      @media (min-width: 767px) {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        padding: 28px 38px;
+      }
+    }
+
+    h2 {
+      @include header-four;
+      color: $openLawDarkGreen;
+      margin-bottom: 10px;
+
+      @media (min-width: 767px) {
+        @include header-four;
+        margin-bottom: 0;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .date {
+      @include header-five;
+      color: $openLawDarkGreen;
+
+      @media (min-width: 767px) {
+        @include header-four;
+      }
+    }
+
+    .content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      padding: 38px 28px 48px 28px;
+
+      @media (min-width: 767px) {
+        flex-direction: row;
+      }
+
+      a {
+        padding-top: 28px;
+        float: right;
+      }
+    }
+
+    .image-container {
+      margin-bottom: 20px;
+      @media (max-width: 767px) {
+        padding: 10% 20%;
+      }
+      @media (max-width: 550px) {
+        padding: 5% 10%;
+      }
+      img {
+        max-width: 100%;
+      }
+
+      @media (min-width: 767px) {
+        flex-basis: 35%;
+        flex-shrink: 0;
+        padding-right: 30px;
+      }
+    }
+  }
+}

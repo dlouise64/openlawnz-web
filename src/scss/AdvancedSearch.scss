@@ -1,0 +1,237 @@
+.advanced-search {
+  margin-top: 60px;
+  margin-bottom: 65px;
+
+  .hidden {
+    display: none;
+  }
+
+  .comboBox-wrapper {
+    position: relative;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .listBox {
+    background: $openWhite;
+    border: 1px solid $openLawMediumGray;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: none;
+    box-shadow: 0px 0.5px 2px rgba(0, 0, 0, 0.25);
+    color: $openLawGray;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 15px;
+    margin-top: -2px;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+
+    &__item {
+      padding: 7px 15px;
+
+      &:not(.listBox__item--clean):hover,
+      &-focused {
+        background-color: $openLawDarkBlue;
+        color: $openWhite;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .box {
+    @include card-style;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 26px 37px;
+    width: 100%;
+  }
+
+  .compound-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .search-field {
+    align-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+
+    &-button {
+      align-items: center;
+      display: flex;
+      flex-basis: 5%;
+      justify-content: space-between;
+
+      span {
+        color: $openLawLightBrown;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 19px;
+      }
+    }
+
+    &-input {
+      flex-basis: 86%;
+    }
+
+    input,
+    .react-date-picker__wrapper,
+    .extended-select {
+      background: $openWhite;
+      border-radius: 5px;
+      border: 1px solid $openLawMediumGray;
+      box-shadow: 0px 0.5px 2px rgba(0, 0, 0, 0.25);
+      color: $openLawGray;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 15px;
+      font-weight: normal;
+      outline: none;
+      outline: none;
+      padding: 11px 15px;
+      width: 100%;
+    }
+
+    .extended-select {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .react-date-picker {
+      width: 100%;
+
+      &__button svg {
+        stroke: $openLawDarkGray;
+      }
+
+      input {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    select,
+    label {
+      align-items: center;
+      background: $openLawLightGray;
+      border-radius: 5px;
+      border: none;
+      box-shadow: 0px 0.5px 2px rgba(0, 0, 0, 0.25);
+      color: $openLawDarkGray;
+      display: flex;
+      flex-basis: 86%;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      outline: none;
+      padding: 11px 8px;
+    }
+  }
+
+  .action-button {
+    background: $openLawLightBrown;
+    border-radius: 5px;
+    border: none;
+    color: $openWhite;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    padding: 12px;
+    transition: all 0.3s ease-in-out;
+
+    &:disabled {
+      background: rgba($openLawLightBrown, 0.5);
+    }
+
+    &:hover {
+      background: rgba($openLawLightBrown, 0.5);
+      color: $openLawLightBrown;
+      cursor: pointer;
+    }
+
+    &.large {
+      padding: 12px 39px;
+    }
+
+    &.large-font {
+      font-size: 18px;
+    }
+
+    &.simple {
+      background: none;
+      color: $openLawDarkGray;
+    }
+  }
+
+  .title {
+    color: $openLawLightBrown;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    color: $openLawDarkGreen;
+    display: inline-block;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .action-container {
+    display: flex;
+    justify-content: flex-end;
+
+    .action-button {
+      margin-left: 20px;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .advanced-search {
+    .box {
+      max-width: 740px;
+    }
+
+    .search-field {
+      flex-wrap: nowrap;
+
+      &-input {
+        flex-basis: 70%;
+        margin: 0 0 0 20px;
+      }
+
+      select,
+      label {
+        flex-basis: initial;
+        margin-bottom: 0;
+      }
+    }
+
+    .compound-field {
+      flex-direction: row;
+      margin-bottom: 20px;
+
+      label {
+        flex-basis: 20%;
+        margin-right: 15px;
+      }
+    }
+  }
+}
