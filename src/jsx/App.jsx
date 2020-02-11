@@ -14,8 +14,7 @@ import Developers from "./pages/Developers.jsx";
 import About from "./pages/About.jsx";
 import NewsContext from "./NewsContext.jsx";
 
-// login
-import { useAuth0 } from "../js/react-auth0-spa";
+import SocialMediaImage from "../img/Social-Media-Profile-Image.jpg";
 
 import "normalize.css";
 import "../scss/App.scss";
@@ -23,43 +22,40 @@ import "../scss/App.scss";
 const MainNavWithRouter = withRouter(props => <MainNav {...props} />);
 
 const App = props => {
-  const { loading } = useAuth0();
-  const [news, setNews] = React.useState(null);
-  const updateNewsData = news => setNews(news);
+	const [news, setNews] = React.useState(null);
+	const updateNewsData = news => setNews(news);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <Router>
-      <React.Fragment>
-        <Helmet>
-          <title>OpenLaw NZ</title>
-          <meta
-            name="openlaw"
-            content="open-source legal data platform, free to use"
-          />
-        </Helmet>
-        <MainNavWithRouter />
-        <main>
-          <NewsContext.Provider
-            value={{ data: news, updateData: updateNewsData }}
-          >
-            <Route exact path="/" component={Home} />
-            <Route exact path="/news" component={News} />
-            <Route exact path="/news/:id" component={SingleNews} />
-          </NewsContext.Provider>
-          <Route exact path="/search" component={Search} />
-          <Route exact path="/case/:id" component={SingleCase} />
-          <Route exact path="/developers" component={Developers} />
-          <Route exact path="/plugins" component={Plugins} />
-          <Route exact path="/about" component={About} />
-        </main>
-        <Footer />
-      </React.Fragment>
-    </Router>
-  );
+	return (
+		<Router>
+			<React.Fragment>
+				<Helmet>
+					<title>OpenLaw NZ</title>
+					<meta name="openlaw" content="open-source legal data platform, free to use" />
+					<meta property="og:type" content="article" />
+					<meta property="og:title" content="OpenLaw NZ" />
+					<meta
+						property="og:description"
+						content="OpenLaw NZ’s role will be to provide the technology and infrastructure, leveraging its existing open-source platform and expertise. Approximately 7,500 Court decisions about ACC cases will be used as the pilot dataset."
+					/>
+					<meta property="og:image" content={SocialMediaImage} />
+				</Helmet>
+				<MainNavWithRouter />
+				<main>
+					<NewsContext.Provider value={{ data: news, updateData: updateNewsData }}>
+						<Route exact path="/" component={Home} />
+						<Route exact path="/news" component={News} />
+						<Route exact path="/news/:id" component={SingleNews} />
+					</NewsContext.Provider>
+					<Route exact path="/search" component={Search} />
+					<Route exact path="/case/:id" component={SingleCase} />
+					<Route exact path="/developers" component={Developers} />
+					<Route exact path="/plugins" component={Plugins} />
+					<Route exact path="/about" component={About} />
+				</main>
+				<Footer />
+			</React.Fragment>
+		</Router>
+	);
 };
 
 export default hot(App);
